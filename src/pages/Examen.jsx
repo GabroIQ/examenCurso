@@ -108,7 +108,7 @@ function Examen() {
             </div>
 
             <div className='campo'>
-              <label>Para que usamos el placerHolder en una etoqueta input? (0,5p)</label>
+              <label>Para que usamos el placerHolder en una etiqueta input? (0,5p)</label>
               <select name="tres" id="" className="input-text" onChange={handleResChange} required>
                 <option value="">Seleccione</option>
                 <option value="Para indicar el valor del input">Para indicar el valor del input</option>
@@ -120,7 +120,7 @@ function Examen() {
             </div>
 
             <div className='campo'>
-              <label>Supongamos que tengo un div conteniendo varias etoquetas de tipo input, por defecto se ponen una al lado de otra, que propiedades usarian para que se ponga en columna? (0,5p)</label>
+              <label>Supongamos que tengo un div conteniendo varias etiquetas de tipo input, por defecto se ponen una al lado de otra, que propiedades usarian para que se ponga en columna? (0,5p)</label>
               <select name="cuatro" id="" className="input-text" onChange={handleResChange} required>
                 <option value="">Seleccione</option>
                 <option value="display: flex +  flex-direction: column">display: flex +  flex-direction: column</option>

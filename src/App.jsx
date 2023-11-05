@@ -34,7 +34,7 @@ function App() {
         setSpiner(false);
         Swal.fire({
           icon: "error",
-          text: "Regvise usuario y cxontraseña e intenelo de nuevo",
+          text: "Revise usuario y contraseña e intenelo de nuevo",
         });
       });
   }
