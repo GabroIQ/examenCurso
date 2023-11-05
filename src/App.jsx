@@ -88,7 +88,7 @@ function App() {
                 "Login"
               )}
             </button>
-            <button onClick={()=> navigate('/examen')}>asd</button>
+        
           </form>
         </div>
       </div>
