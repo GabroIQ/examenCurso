@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: #484655;
 }
 
 .log {
@@ -61,6 +60,7 @@
 
 textarea.input-text {
   height: 100px;
+  background-color: #efefef;
 }
 
 .boton-enviar {
