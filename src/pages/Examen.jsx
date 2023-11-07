@@ -46,6 +46,7 @@ function Examen() {
         tres: respuestas.tres,
         cuatro: respuestas.cuatro,
         cinco: respuestas.cinco,
+        seis: new Date()
       });
       await setDoc(doc(db, emailUser, "datos"), {
         nombre: datosUser.nombre,
@@ -66,6 +67,16 @@ function Examen() {
     console.log(respuestas);
   }
 
+  const cerrarSesion = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     onAuthStateChanged(auth, (userLog) => {
       if (userLog) {
@@ -80,13 +91,17 @@ function Examen() {
 
   return (
     <>
+      <header className='header-log'>
+        <h1>Hola {datosUser?.nombre}!!</h1>
+        <button type='submit' onClick={cerrarSesion}>Cerrar sesion</button>
+      </header>
       {datosUser?.sendCuestionario === false
         ?
         <div className='log column'>
-          <h1>Paso 1: Responder el siguiente cuestionario (0,5p)</h1>
+          <h1>Paso 1: Responder el siguiente cuestionario (2,5p en total)</h1>
           <form className='form-uno' onSubmit={guardarRes}>
             <div className='campo'>
-              <label>Si quiero dejar un espaciado con el contenedor de arriba, que propíedad de CSS usarian?</label>
+              <label>Si quiero dejar un espaciado con el contenedor de arriba, que propíedad de CSS usarian? (0,5p)</label>
               <select name="uno" id="" className="input-text" onChange={handleResChange} required>
                 <option value="">Seleccione</option>
                 <option value="display: flex">display: flex</option>

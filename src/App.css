@@ -195,7 +195,8 @@ textarea.input-text {
   flex-direction: column;
   color: #fff;
 }
-.consignas h1{
+
+.consignas h1 {
   text-align: center;
 }
 
@@ -263,6 +264,31 @@ textarea.input-text {
   gap: 1rem;
   margin-top: 1rem;
 }
-.ul li{
-font-size: 18px;
+
+.ul li {
+  font-size: 18px;
+}
+.header-log{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #484655;
+  padding: 0.3rem 1rem;
+  border-bottom: solid 1px #ffffff31;
+}
+.header-log h1{
+  color: #fff;
+}
+.header-log button{
+  background-color: #333; 
+  color: #fff; 
+  border: 1px solid #333; 
+  padding: 10px 20px;
+  border-radius: 4px; 
+  text-decoration: none; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+}
+.header-log button:hover {
+  background-color: #555; 
 }
