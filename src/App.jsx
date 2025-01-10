@@ -84,10 +84,10 @@ function App() {
     resetTranscript
     setValue(null);
     setUser({
-      nombre: '', 
+      nombre: '',
       apellido: ''
     });
-   
+
   }
 
 
@@ -136,13 +136,15 @@ function App() {
 
               <div className='contenedor-micro'>
                 {
-                listening === false
-                ? <i onClick={SpeechRecognition.startListening} className={`${listening ? 'pi pi-microphone escuchando' : 'pi pi-microphone'}`}></i> 
-                : <p className='stop' onClick={() => siguiente("3")}>DETENER</p>
+                  listening === false
+                    ? <i onClick={SpeechRecognition.startListening} className={`${listening ? 'pi pi-microphone escuchando' : 'pi pi-microphone'}`}></i>
+                    : <p className='stop' >DETENER</p>
                 }
-               
               </div>
-              {/* <button onClick={() => siguiente("1")}>Empezar</button> */}
+              {transcript &&
+                <p className='transcripcion'>{transcript}</p>
+              }
+              <button className={`${transcript ? null : 'btn-disabled'}`} disabled={transcript ? false : true} onClick={() => siguiente("3")}>Siguiente</button>
             </>
           }
 
@@ -150,10 +152,8 @@ function App() {
             <>
               <h3>¡Último paso!</h3>
               <p>
-                Abajo verá la traducción de su audio. Por favor, califique la precisión de la interpretación según su exactitud. Utilice una escala de 1 a 5 estrellas, siendo 5 el puntaje más alto, que indica una interpretación perfecta, y 1 el puntaje más bajo, que indica que la traducción no fue precisa en absoluto.
+                Califique la precisión de la interpretación según su exactitud. Utilice una escala de 1 a 5 estrellas, siendo 5 el puntaje más alto, que indica una interpretación perfecta, y 1 el puntaje más bajo, que indica que la traducción no fue precisa en absoluto.
               </p>
-
-              <p className='transcripcion'>{transcript}</p>
 
               <div className='contenedor-estrellas'>
                 <Rating value={value} onChange={(e) => setValue(e.value)} cancel={false} style={{ fontSize: '2rem' }} />
