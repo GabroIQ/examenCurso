@@ -265,11 +265,12 @@ button {
   justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
-  color: #333;
+  color: tomato;
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: solid 1px #333;
+  border: solid 1px tomato;
+  font-weight: 700;
   cursor: pointer;
 }
 .escuchando{
