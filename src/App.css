@@ -292,3 +292,9 @@ textarea.input-text {
 .header-log button:hover {
   background-color: #555; 
 }
+
+.p-rating-item svg{
+  width: 30px;
+  height: 30px;
+  color: rgb(255, 196, 0);
+}
