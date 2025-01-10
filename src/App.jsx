@@ -60,6 +60,7 @@ function App() {
 
   const asd = async (e) => {
     e.preventDefault();
+    setSpiner(true);
     const objMoldeado = {
       nombreCompleto: `${user.nombre.toLowerCase()}${user.apellido.toLowerCase()}`,
       texto: transcript,
@@ -73,6 +74,7 @@ function App() {
       textoPuntaje: objMoldeado.textoPuntaje,
       fecha: new Date()
     });
+    setSpiner(false);
     Swal.fire({
       icon: "success",
       text: "Cuestionario enviado correctamente, gracias por participar.",
@@ -81,7 +83,10 @@ function App() {
     setStepUno(true);
     resetTranscript
     setValue(null);
-    setUser(undefined);
+    setUser({
+      nombre: '', 
+      apellido: ''
+    });
    
   }
 
@@ -129,10 +134,14 @@ function App() {
                 El objetivo es verificar si el sistema es capaz de interpretar de manera eficiente y precisa todas las palabras que mencione y procesar el vocabulario médico con presición.
               </p>
 
-              <div className='contenedor-micro' onClick={SpeechRecognition.startListening}>
-                <i className="pi pi-microphone"></i>
+              <div className='contenedor-micro'>
+                {
+                listening === false
+                ? <i onClick={SpeechRecognition.startListening} className={`${listening ? 'pi pi-microphone escuchando' : 'pi pi-microphone'}`}></i> 
+                : <p className='stop' onClick={() => siguiente("3")}>DETENER</p>
+                }
+               
               </div>
-              <p onClick={() => siguiente("3")}>DETENER</p>
               {/* <button onClick={() => siguiente("1")}>Empezar</button> */}
             </>
           }
@@ -248,6 +257,33 @@ button {
   border-radius: 50%;
   border: solid 1px #333;
   font-size: 40px;
+  cursor: pointer;
+}
+.stop{
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: #333;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: solid 1px #333;
+  cursor: pointer;
+}
+.escuchando{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: #333;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: solid 1px #333;
+  font-size: 40px;
+  cursor: pointer;
 }
 .pi-microphone:hover{
   background-color: #333;
